@@ -41,3 +41,8 @@ form {
 .layui-input {
     padding-left: 30px;
 }
+
+/* 注册表单 */
+#register-form {
+    display: none;
+}
