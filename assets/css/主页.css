@@ -5,3 +5,29 @@
 .layui-icon-app {
     margin-left: 10px;
 }
+
+/* 头像 */
+.welcome {
+    color: #fff;
+}
+.welcome img {
+    height: 32px;
+    margin: 14px;
+}
+.welcome div {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    background-color: #00988B;
+    text-align: center;
+    line-height: 32px;
+    vertical-align: middle;
+    margin: 14px;
+
+}
+/* 右侧内容区 */
+iframe {
+    height: 100%;
+    width: 100%;
+}
