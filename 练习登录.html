@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入LayUI -->
+    <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
+    <!-- 引入jq -->
+    <script src="./assets/lib/jquery.js"></script>
+    <!-- 引入自己的样式 -->
+    <link rel="stylesheet" href="./assets/css/登录.css">
+    <script src="./assets/js/登录.js"></script>
     <title>练习登录</title>
 </head>
 <body>
-    <div>登录</div>
+    <!-- 顶部标题 -->
+    <div class="layui-container header">
+        <img src="./assets/images/logo.png" alt="">
+    </div>
+    <!-- 中间内容区 -->
+    <div class="content">
+        <!-- 表单标题 -->
+        <div class="form-title">
+            <img src="./assets/images/login_title.png" alt="">
+        </div>
+        <form action="" class="layui-form">
+            <!-- 用户名 -->
+            <div class="layui-form-item">
+                <div>
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 密码 -->
+            <div class="layui-form-item">
+                <div>
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 登录 -->
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-normal" lay-submit >登录</button>
+            </div>
+            <!-- 底部连接 -->
+            <div class="links">
+                <a href="javascript:;">去注册账号</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
