@@ -41,5 +41,18 @@ $(function() {
     loadUserInFo()
 
     //退出功能
-    
+    $('.sign-out').click(function() {
+        //layui弹出层
+        layer.confirm('你确定退出吗?', {icon: 3, title:'提示'}, function(index){
+            //确定退出，执行动作
+            //清空数据
+            localStorage.removeItem('mytoken')
+
+            // 关闭弹出层
+            layer.close(index);
+
+            //跳转登录页面
+            location.href = './练习登录.html'
+        });
+    })
 })
