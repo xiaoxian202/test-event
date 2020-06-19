@@ -32,7 +32,7 @@ $(function() {
         //利用ajax提交数据
         $.ajax({
             type:'post',
-            url:'http://ajax.frontend.itheima.net/api/login',
+            url:'api/login',
             data:formData,
             success:function(res) {
                 // console.log(res);
@@ -53,7 +53,7 @@ $(function() {
         //向服务器提交数据
         $.ajax({
             type:'post',
-            url:'http://ajax.frontend.itheima.net/api/reguser',
+            url:'api/reguser',
             data:formData,
             success:function(res) {
                 if(res.status !== 0) {
