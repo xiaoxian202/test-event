@@ -2,7 +2,8 @@
 通用配置
  */
 // 配置通用URL地址
-var baseURL = 'http://ajax.frontend.itheima.net/'
+// var baseURL = 'http://ajax.frontend.itheima.net/'
+var baseURL = 'http://www.liulongbin.top:3007/'
 $.ajaxPrefilter(function(option) {
     //进度条
     option.beforeSend = function() {

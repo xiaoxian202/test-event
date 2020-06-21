@@ -25,11 +25,18 @@ $(function() {
                     // info.user_pic = 'http://t.cn/RCzsdCq'
                     if(data.user_pic) {
                         //删除div，添加img
-                        $('.log-uname').siblings('div').remove()
-                        $('.log-uname').parent().prevend('<img src="'+data.user_pic+'">')
-    
-                        $('.welcome-uname').parent().siblings('div').remove()
-                        $('.welcome-uname').parent().parent().prevend('<img src="'+data.user_pic+'">')
+                        $('.log-uname,.welcome-uname')
+                        .parent()
+                        .siblings('div')
+                        .remove()
+
+                        $('.log-uname,.welcome-uname')
+                        .parent()
+                        .parent()
+                        .find('img')
+                        .remove()
+                        .end()
+                        .prepend('<img src="'+data.user_pic+'">')
                         
                     }else {
                         //显示div
@@ -39,6 +46,9 @@ $(function() {
         })
     }
     loadUserInFo()
+
+    //把加载用户信息的方法，添加到$对象上
+    $.loadUserInFo = loadUserInFo
 
     //退出功能
     $('.sign-out').click(function() {
