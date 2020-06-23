@@ -29,13 +29,11 @@ $(function() {
             type:'get',
             url:'my/article/cates',
             success:function(res) {
-                if(res.status === 0) {
                     //依据模板引擎，渲染页面
                     var tags = template('tpl-category',res)
                     $('#category').html(tags)
                     //更新渲染
                     form.render('select')
-                }
             }
         })
     }
@@ -48,35 +46,58 @@ $(function() {
             url:'my/article/list',
             data:param,
             success:function(res) {
-                console.log(res);
-                if(res.status === 0) {
-                    var tags = template('list-tpl',res)
-                    $('.layui-table tbody').html(tags)
-                }
+                // console.log(res);
+                var tags = template('list-tpl',res)
+                $('.layui-table tbody').html(tags)
+
             }
         })
     }
     loadListData({
-        pagenum:1,
-        pagesize:10
+        pagenum: pagenum,
+        pagesize:pagesize
     })
 
-    //搜索功能
+    // 搜索功能
     $('#search-form').submit(function(e) {
         e.preventDefault()
         //获取表单数据
         var fd = $(this).serializeArray()
-        console.log(fd);
         var params = {
             pagenum:pagenum,
             pagesize:pagesize
         }
-        fd.forEach(function(item) {
+        fd.filter(function(item) {
             //动态添加属性
             params[item.name] = item.value
         })
+        loadListData(params)      
+    })
 
-        loadListData(params)
-       
+    //删除功能
+    $('body').on('click','.del',function() {
+        //获取删除的id
+        var id = $(this).data('id')
+        //调用接口
+        $.ajax({
+            type:'get',
+            url:'my/article/delete/'+id,
+            data:{
+                id:id
+            },
+            success:function(res) {
+                if(res.status === 0) {
+                    layer.confirm('你确定要删除吗?', {icon: 3, title:'提示'}, function(index){
+                        //刷新页面
+                        loadListData({
+                            pagenum: pagenum,
+                            pagesize:pagesize
+                        })
+                        
+                        layer.close(index);
+                    })
+                } 
+            }
+        })
     })
 })
